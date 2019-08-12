@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>screen name</th>
+        <th>actions</th>
+    </tr>
+  <% @users.each do |user| %>
+    <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.screen_name %></td>
+        <td>
+            <%= form_for user, url: user_login_path(user) do |user_form| %>
+                <%= user_form.submit "Login" %>
+            <% end %>
+        </td>
+    </tr>
+  <% end %>
+</table>
+<%= @users.count %> users<br />
+<%= link_to "New user", new_user_path %>
