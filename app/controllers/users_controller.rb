@@ -32,8 +32,8 @@ class UsersController < ApplicationController
     end
 
     def login
-        user_id = params[:id]
+        user_id = params[:user_id]
         cookies[:user_id] = user_id
-        redirect_to :me
+        redirect_to '/users/me'
     end
 end
