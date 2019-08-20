@@ -19,5 +19,15 @@ class TweetsController < ApplicationController
             redirect_to new_tweet_url(@tweet)
         end
     end
+    
+    def show
+        tweet = params[:text]
+    end
+
+    def Submit
+        tweet = params[:text]
+        cookies[:tweet] = user_details
+        redirect_to '/users/me'
+    end
 end
     

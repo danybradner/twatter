@@ -1,12 +1,21 @@
 <h2>G'day, <%= @user.name %>, who's <%= @user.screen_name%>, here are all your tweets! </h2>
 
 <table>
-    
     <tr>
-        <td>Dany </td>
-        <td> tweet tweet </td>
-        <td> 20 August 2019 5:00 </td>
+        <th>screen name </th>
+        <th>text</th>
+        <th>time</th>
     </tr>
-
+    <% @user.tweets.each do |tweet| %>
+     <tr>
+        <td><%= tweets.all %></td>
+        <td>
+             <%= form_for tweet, url: new_tweet_path(tweet) do |tweet_form| %>
+                <%= tweet_form.submit "Submit" %>
+             <% end %>
+         </td>
+     </tr>   
+    <% end %>
 </table>
     
+ #index needs get access to creating a new tweet
