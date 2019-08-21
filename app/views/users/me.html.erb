@@ -10,12 +10,14 @@
      <tr>
         <td><%= tweets.all %></td>
         <td>
-             <%= form_for tweet, url: new_tweet_path(tweet) do |tweet_form| %>
-                <%= tweet_form.submit "Submit" %>
-             <% end %>
+             
          </td>
      </tr>   
+    <% end %>
+    <%= form_for @tweet do |tweet_form| %>
+        <%= tweet_form.submit "Submit" %>
     <% end %>
 </table>
     
  #index needs get access to creating a new tweet
+ #I need to see how the me page can connect to the tweet.create page

@@ -9,10 +9,10 @@ class TweetsController < ApplicationController
 
     def create
         tweet_details = params.require(:tweet).permit(:text)
-        user_id = cookies[:user_id]
-        user = User.find(user_id)
+        #user_id = cookies[:user_id]
+        #user = User.find(user_id)
         @tweet = Tweet.new(tweet_details)
-        @tweet.user = user
+        #@tweet.user = user
         if @tweet.save
             redirect_to :index
         else

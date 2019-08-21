@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     def me
         user_id = cookies[:user_id]
         @user = User.find(user_id)
+        @tweet = Tweet.new
         redirect_to :index unless @user.present?
     end
 
