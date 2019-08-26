@@ -7,17 +7,21 @@
         <th>time</th>
     </tr>
     <% @user.tweets.each do |tweet| %>
-     <tr>
-        <td><%= tweets.all %></td>
-        <td>
-             
+        <tr>
+            <td><%= tweet.user.screen_name %></td>
+            <td><%= tweet.text %></td>  
+            <td><%= tweet.created_at %></td> 
          </td>
-     </tr>   
+        </tr>   
     <% end %>
+
     <%= form_for @tweet do |tweet_form| %>
+        Text: <%= tweet_form.text_field :text %> <br />
         <%= tweet_form.submit "Submit" %>
+        <% if @tweet.errors.any? %>
+            <% @tweet.errors.full_messages. each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+         <% end %>
     <% end %>
 </table>
-    
- #index needs get access to creating a new tweet
- #I need to see how the me page can connect to the tweet.create page

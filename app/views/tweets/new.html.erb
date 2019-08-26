@@ -1,4 +1,9 @@
 <%= form_for @tweet do |tweet_form| %>
-    Text: <% tweet_form.text_field :text %> <br />
-    <%= tweet_form.submit %>
+    Text: <%= tweet_form.text_field :text %> <br />
+    <%= tweet_form.submit "Submit" %>
+    <% if @tweet.errors.any? %>
+        <% @tweet.errors.full_messages. each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        <% end %>
 <% end %>
