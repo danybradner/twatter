@@ -1,3 +1,9 @@
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %> </li>
+    <% end %>
+<% end %>
+
 <%= form_for @user do |user_form| %>
     Name: <%= user_form.text_field :name %><br />
     Screen Name: @<%= user_form.text_field :screen_name %><br />

@@ -12,9 +12,9 @@ class UsersController < ApplicationController
         user_details = params.require(:user).permit(:screen_name, :name)
         @user = User.new(user_details)
         if @user.save
-            redirect_to :index
+            redirect_to users_path
         else
-            redirect_to new_user_url(@user)
+            render :new
         end
     end
 
