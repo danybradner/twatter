@@ -4,5 +4,5 @@ class User < ApplicationRecord
     validates :name, presence: true
 end
 
-#I need to figure out a way to limit the amount users with the same screen name
+
 
